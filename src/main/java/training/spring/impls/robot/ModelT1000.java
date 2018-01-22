@@ -11,14 +11,33 @@ public class ModelT1000 implements Robot {
 	private Leg leg;
 	private Head head;
 
+
+	private String color;
+	private int age;
+	private boolean soundEnabled;
+
 	public ModelT1000() {
 	}
 
 	public ModelT1000(Hand hand, Leg leg, Head head) {
-		super();
 		this.hand = hand;
 		this.leg = leg;
 		this.head = head;
+	}
+
+	public ModelT1000(Hand hand, Leg leg, Head head, String color, int age, boolean soundEnabled) {
+		this.hand = hand;
+		this.leg = leg;
+		this.head = head;
+		this.color = color;
+		this.age = age;
+		this.soundEnabled = soundEnabled;
+	}
+
+	public ModelT1000(String color, int age, boolean soundEnabled) {
+		this.color = color;
+		this.age = age;
+		this.soundEnabled = soundEnabled;
 	}
 
 	@Override
@@ -26,6 +45,9 @@ public class ModelT1000 implements Robot {
 		head.calc();
 		hand.catchSomething();
 		leg.go();
+		System.out.println("color: " + color);
+		System.out.println("age: " + age);
+		System.out.println("soundEnabled: " + soundEnabled);
 	}
 
 	@Override
@@ -57,4 +79,27 @@ public class ModelT1000 implements Robot {
 		this.head = head;
 	}
 
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public int getAge() {
+		return age;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public boolean isSoundEnabled() {
+		return soundEnabled;
+	}
+
+	public void setSoundEnabled(boolean soundEnabled) {
+		this.soundEnabled = soundEnabled;
+	}
 }
