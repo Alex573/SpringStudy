@@ -1,11 +1,13 @@
 package training.spring.impls.robot;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import training.spring.interfaces.Hand;
 import training.spring.interfaces.Head;
 import training.spring.interfaces.Leg;
 import training.spring.interfaces.Robot;
 
-public class ModelT1000 implements Robot {
+public class ModelT1000 implements Robot,InitializingBean,DisposableBean {
 
 	private Hand hand;
 	private Leg leg;
@@ -102,4 +104,24 @@ public class ModelT1000 implements Robot {
 	public void setSoundEnabled(boolean soundEnabled) {
 		this.soundEnabled = soundEnabled;
 	}
+
+	public void initOject(){
+        System.out.println("init");
+    }
+
+
+    public void destroyOject(){
+        System.out.println("destroy");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println(this + " - metchod destroy()");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(this + " - afterSet()");
+
+    }
 }
